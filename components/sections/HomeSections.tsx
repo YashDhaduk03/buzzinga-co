@@ -229,13 +229,13 @@ export function TestimonialsSection() {
             type="button"
             aria-label="Previous testimonial"
             onClick={goToPrevious}
-            className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full bg-[#919191]/20 transition-colors hover:bg-[#919191]/30 md:flex"
+            className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-[14px] bg-[#919191]/20 transition-colors hover:bg-[#919191]/30 md:flex"
           >
             <Image
               src="/buzzinga-assets/images/icons/navigation/arrow-back.svg"
               alt=""
-              width={16}
-              height={16}
+              width={40}
+              height={40}
               aria-hidden="true"
             />
           </button>
@@ -261,13 +261,13 @@ export function TestimonialsSection() {
             type="button"
             aria-label="Next testimonial"
             onClick={goToNext}
-            className="absolute right-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full bg-[#919191]/20 transition-colors hover:bg-[#919191]/30 md:flex"
+            className="absolute right-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-[14px] bg-[#919191]/20 transition-colors hover:bg-[#919191]/30 md:flex"
           >
             <Image
               src="/buzzinga-assets/images/icons/navigation/arrow-next.svg"
               alt=""
-              width={16}
-              height={16}
+              width={40}
+              height={40}
               aria-hidden="true"
             />
           </button>

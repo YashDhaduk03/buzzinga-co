@@ -153,18 +153,6 @@ export const PROJECTS = [
 export const TESTIMONIALS = [
   {
     quote:
-      "Worked with Buzzinga on our product design. Truly impressed by their grasp of our brand and attention to detail. Designs are beautiful and user-centric. Highly responsive and proactive. Highly recommend.",
-    name: "Arne Wolfewicz",
-    company: "Narratic Labs",
-  },
-  {
-    quote:
-      "Buzzinga is aesthetic, innovative, and deeply thoughtful in their approach. The design and theme finalization process was smooth and impactful. They don't just create graphics-they help build your brand. Even post-delivery, they're attentive and committed. Great work!",
-    name: "Dhaumil Parmar",
-    company: "Redicine Medsol",
-  },
-  {
-    quote:
       "Services are exceptional. They brought immense value through understanding what we do and seeing what needs to be done. I've worked with countless people and Buzzinga is most likely the best. Intelligent. Competent. Exceptional human.",
     name: "Trevor Burgeron",
     company: "WozJobs Inc",
@@ -179,6 +167,48 @@ export const TESTIMONIALS = [
     quote: "Buzzinga has a solid design experience. Will hire again, enjoyed working them.",
     name: "Matt",
     company: "Sparrow InterActive",
+  },
+  {
+    quote:
+      "Working with Buzzinga was a delight. I was looking for someone who delivers designs and works as a creative partner. Buzzinga demonstrated this from the start. I worked with them on different ideas and found a strong ownership mindset. Communication was open, and they were flexible. Buzzinga is the team to trust.",
+    name: "Shraddha Sonawane",
+    company: "Serial Entrepreneur",
+  },
+  {
+    quote:
+      "Buzzinga did a great job updating our SaaS interface. They deep dived into the software to understand it first, which gave them great insight. As a result, they built tailored wireframes that were always on point. Recommended 100%!",
+    name: "Artias Bogush",
+    company: "Qwoach LLC",
+  },
+  {
+    quote:
+      "There's good design and then there's good understanding. Buzzinga has both. They help build the product while finding the most elegant way for users to experience it. Beautiful and design-first.",
+    name: "Nicholus Parnebey",
+    company: "Jabfab Inc",
+  },
+  {
+    quote:
+      "One of the best teams I've worked with. Buzzinga is excellent at visualising your idea and turning it into a working product. This is a rare skill. Will be using the team again.",
+    name: "Max Oyeston",
+    company: "Loyal IOM",
+  },
+  {
+    quote:
+      "Buzzinga built us a fully immersive, private user dashboard. The task required an in-depth understanding of complex backend processes and how to present them simply. He made it possible to search, organize, track, and transfer digital assets in an intuitive way.",
+    name: "EthPilot",
+    company: "DUTCH0x",
+  },
+  {
+    quote:
+      "Worked with Buzzinga on our product design. Truly impressed by their grasp of our brand and attention to detail. Designs are beautiful and user-centric. Highly responsive and proactive. Highly recommend.",
+    name: "Arne Wolfewicz",
+    company: "Narratic Labs",
+  },
+  {
+    quote:
+      "Buzzinga is aesthetic, innovative, and deeply thoughtful in their approach. The design and theme finalization process was smooth and impactful. They don't just create graphics-they help build your brand. Even post-delivery, they're attentive and committed. Great work!",
+    name: "Dhaumil Parmar",
+    company: "Redicine Medsol",
   },
 ] as const;
 
