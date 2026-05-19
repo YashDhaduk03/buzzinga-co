@@ -397,3 +397,87 @@ export function ContactSection() {
     </section>
   );
 }
+
+export function ContactPageSection() {
+  return (
+    <section className="bg-white pt-[162px] pb-[100px]">
+      <Container>
+        <div className="relative flex h-[610.422px] items-start justify-start gap-8 rounded-[24px] bg-[#F2F4F7] p-[72px]">
+          <div className="flex w-[425px] flex-none flex-col items-start gap-4">
+            <h2 className="m-0 w-[425px] text-[48px] font-semibold leading-[57.6px] text-[#262D30]">
+              Start Your Next
+              <br />
+              Journey With Us
+            </h2>
+            <p className="m-0 w-[425px] text-[20px] font-normal leading-[32px] text-[#262D30]">
+              Need a quick quote, a free 30-min consultation, or just want to
+              learn more? Drop your details, and we&apos;ll be in touch within
+              24 working hours to set up a call.
+            </p>
+          </div>
+
+          <form className="relative flex w-[599px] flex-none flex-col items-start gap-5 [font-family:Inter]">
+            <label className="relative flex w-[599px] flex-col gap-[10px] text-[12px] font-medium leading-[14.4px] text-[#242424b3] [font-family:Inter]">
+              What are you interested in?*
+              <select
+                defaultValue=""
+                className="h-[43.203px] w-[599px] rounded-[10px] border border-[#b8bcc2] bg-white px-3 text-[16px] font-normal leading-[19.2px] text-[#262D30] [font-family:Inter]"
+              >
+                <option value="" disabled>
+                  Select...
+                </option>
+                <option>I want a free 30-minute consultation</option>
+                <option>I&apos;m looking for a project quote</option>
+                <option>I&apos;m exploring long-term partnership opportunities</option>
+                <option>I&apos;m just curious to learn more about your work &amp; services</option>
+              </select>
+            </label>
+
+            <label className="relative flex w-[599px] flex-col gap-[10px] text-[12px] font-medium leading-[14.4px] text-[#242424b3] [font-family:Inter]">
+              What stage are you in your AI journey?*
+              <select
+                defaultValue=""
+                className="h-[43.203px] w-[599px] rounded-[10px] border border-[#b8bcc2] bg-white px-3 text-[16px] font-normal leading-[19.2px] text-[#262D30] [font-family:Inter]"
+              >
+                <option value="" disabled>
+                  Select...
+                </option>
+                <option>We are in early exploratory phase. Need AI partner to guide us.</option>
+                <option>We have a fair understanding of what we want to accomplish. Need to start with the AI discovery phase.</option>
+                <option>We have the team and budget to build the AI solution. We need a AI development partner to execute the project.</option>
+                <option>We&apos;re not exploring AI developments at the moment.</option>
+              </select>
+            </label>
+
+            <div className="flex w-[599px] gap-5">
+              <label className="flex w-[289.5px] flex-col gap-[10px] text-[12px] font-medium leading-[14.4px] text-[#242424b3] [font-family:Inter]">
+                Name*
+                <input className="h-[43.203px] rounded-[10px] border border-[#b8bcc2] bg-white px-3 text-[16px] font-normal leading-[19.2px] text-[#262D30] [font-family:Inter]" />
+              </label>
+              <label className="flex w-[289.5px] flex-col gap-[10px] text-[12px] font-medium leading-[14.4px] text-[#242424b3] [font-family:Inter]">
+                Email*
+                <input
+                  type="email"
+                  className="h-[43.203px] rounded-[10px] border border-[#b8bcc2] bg-white px-3 text-[16px] font-normal leading-[19.2px] text-[#262D30] [font-family:Inter]"
+                />
+              </label>
+            </div>
+
+            <label className="flex w-[599px] flex-col gap-[10px] text-[12px] font-medium leading-[16.8px] text-[#242424b3] [font-family:Inter]">
+              Briefly describe your project&mdash;goals, challenges, and requirements,
+              to help us assist you more effectively during our initial call.*
+              <textarea className="h-[100px] resize-y rounded-[10px] border border-[#b8bcc2] bg-white px-3 py-3 text-[16px] font-normal leading-[20.8px] text-[#262D30] [font-family:Inter]" />
+            </label>
+
+            <button
+              type="submit"
+              className="relative flex h-10 w-[599px] items-center justify-center rounded-[10px] bg-[#333333] p-0 text-[14px] font-semibold leading-[16.8px] text-white [font-family:Inter]"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </Container>
+    </section>
+  );
+}
