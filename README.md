@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
+## Project Purpose
+
+This project was created to build a complete replica of [Buzzinga](https://www.buzzinga.co/).
+
+The original website is built with a different technology stack. This repository recreates the same website experience using Next.js so the design, layout, content, and interactions can be rebuilt in this codebase.
+
 ## Getting Started
 
 First, run the development server:
