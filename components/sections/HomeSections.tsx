@@ -1,15 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import Container from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
 import {
   CAPABILITIES,
   CLIENT_LOGOS,
-  PROJECTS,
-  TESTIMONIALS,
   WHY_CLIENTS_STAY,
 } from "@/constants/site-content";
+
+export { ContactPageSection, ContactSection } from "./ContactSection";
+export { default as ProjectsSection } from "./ProjectsSection";
 
 function AssetIcon({ src, alt, size = 48 }: { src: string; alt: string; size?: number }) {
   return (
@@ -30,8 +30,6 @@ const CAPABILITY_POSITION_CLASSES = [
   "order-3",
   "order-4",
 ] as const;
-
-const PROJECT_ORDER = ["MeLiSA", "JabFab", "911Switch", "Predictr"] as const;
 
 export function IntroSection() {
   const logoSlides = [...CLIENT_LOGOS, ...CLIENT_LOGOS];
@@ -144,154 +142,6 @@ export function CapabilitiesSection() {
   );
 }
 
-export function ProjectsSection() {
-  const orderedProjects = PROJECT_ORDER.map((client) =>
-    PROJECTS.find((project) => project.client === client)
-  ).filter((project): project is (typeof PROJECTS)[number] => Boolean(project));
-  const projectColumns = [
-    orderedProjects.filter((project) => project.client === "MeLiSA" || project.client === "911Switch"),
-    orderedProjects.filter((project) => project.client === "JabFab" || project.client === "Predictr"),
-  ];
-
-  return (
-    <section className="bg-white py-20 md:py-24" id="projects">
-      <Container>
-        <h2 className="text-[40px] font-semibold leading-[1.1] text-[#262D30] md:text-[52px]">
-          Real Results, Real Impact
-        </h2>
-        <p className="mt-5 max-w-[720px] text-[20px] leading-[1.5] text-[#262D30]">
-          Every project tells a story. See how we&apos;ve helped businesses
-          transform their ideas into reality
-        </p>
-
-        <div className="mt-14 grid gap-2 lg:grid-cols-2">
-          {projectColumns.map((column, columnIndex) => (
-            <div key={columnIndex} className="grid gap-2">
-              {column.map((project, index) => (
-                <Link
-                  key={project.client}
-                  href={project.href}
-                  className={cn(
-                    "group relative flex min-h-[520px] overflow-hidden rounded-lg px-8 pt-8 transition-transform duration-300 focus-visible:outline-offset-4 lg:min-h-[559px] lg:px-12 lg:pt-12",
-                    project.className
-                  )}
-                >
-                  <div className="relative z-10 max-w-[500px]">
-                    <p className={`text-[18px] font-normal leading-[1.6] lg:text-[20px] ${index === 0 && columnIndex === 0 ? 'text-[#242424b3]': index === 0 && columnIndex === 1 ? 'text-[#cfd8ea]' : 'text-[#fff]' }`}>
-                      {project.client}
-                    </p>
-                    <h3 className={`mt-2 text-[28px] font-semibold leading-[1.3] lg:text-[32px] ${index === 0 && columnIndex === 0 ? 'text-[#262d30]': 'text-[#fff]' }`}>
-                      {project.title}
-                    </h3>
-                  </div>
-                  <Image
-                    src={project.image}
-                    alt={`${project.client} project preview`}
-                    width={760}
-                    height={528}
-                    className={cn(
-                      "absolute bottom-0 left-8 h-[320px] w-[calc(100%-64px)] max-w-none object-contain object-bottom lg:left-12 lg:h-[348px] lg:w-[calc(100%-96px)]",
-                      project.client === "JabFab" && "lg:w-[calc(100%-48px)]"
-                    )}
-                    loading="eager"
-                  />
-                </Link>
-              ))}
-            </div>
-          ))}
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-export function TestimonialsSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const goToPrevious = () =>
-    setActiveIndex((index) => (index === 0 ? TESTIMONIALS.length - 1 : index - 1));
-  const goToNext = () =>
-    setActiveIndex((index) => (index + 1) % TESTIMONIALS.length);
-
-  return (
-    <section className="bg-white py-24 text-center md:py-32">
-      <Container>
-        <h2 className="text-[34px] font-semibold text-[#262D30]">
-          Trusted by Forward-Thinking Teams
-        </h2>
-        <p className="mt-2 text-[20px] text-[#262D30]">
-          Don&apos;t just take our word for it. Here&apos;s what our clients say
-          about working with us.
-        </p>
-
-        <div className="relative mt-20">
-          <button
-            type="button"
-            aria-label="Previous testimonial"
-            onClick={goToPrevious}
-            className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-[14px] bg-[#919191]/20 transition-colors hover:bg-[#919191]/30 md:flex"
-          >
-            <Image
-              src="/buzzinga-assets/images/icons/navigation/arrow-back.svg"
-              alt=""
-              width={40}
-              height={40}
-              aria-hidden="true"
-            />
-          </button>
-          <div className="mx-auto max-w-[1040px] overflow-hidden">
-            <ul
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-            >
-              {TESTIMONIALS.map((testimonial) => (
-                <li key={`${testimonial.name}-${testimonial.company}`} className="w-full flex-none">
-                  <blockquote className="text-[28px] italic leading-[1.55] text-[#121820] md:text-[40px]">
-                    &quot;{testimonial.quote}&quot;
-                  </blockquote>
-                  <p className="mt-10 text-2xl font-semibold text-[#121820]">
-                    {testimonial.name}
-                  </p>
-                  <p className="mt-1 text-2xl text-[#121820]">{testimonial.company}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <button
-            type="button"
-            aria-label="Next testimonial"
-            onClick={goToNext}
-            className="absolute right-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-[14px] bg-[#919191]/20 transition-colors hover:bg-[#919191]/30 md:flex"
-          >
-            <Image
-              src="/buzzinga-assets/images/icons/navigation/arrow-next.svg"
-              alt=""
-              width={40}
-              height={40}
-              aria-hidden="true"
-            />
-          </button>
-        </div>
-
-        <div className="mt-12 flex justify-center gap-3">
-          {TESTIMONIALS.map((testimonial, index) => (
-            <button
-              key={index}
-              type="button"
-              aria-label={`Show testimonial from ${testimonial.name}`}
-              onClick={() => setActiveIndex(index)}
-              className={cn(
-                "h-3 rounded-full transition-[width,background-color]",
-                index === activeIndex ? "w-8 bg-[#262D30]" : "w-3 bg-[#D9D9D9]"
-              )}
-            />
-          ))}
-        </div>
-      </Container>
-    </section>
-  );
-}
-
 export function WhyClientsStaySection() {
   return (
     <section className="bg-white py-24 md:py-32">
@@ -336,148 +186,3 @@ export function WhyClientsStaySection() {
   );
 }
 
-export function ContactSection() {
-  return (
-    <section className="bg-white py-12 md:py-20">
-      <Container>
-        <div className="grid gap-12 rounded-3xl bg-[#F2F4F7] p-8 md:grid-cols-[0.8fr_1.2fr] md:p-16">
-          <div>
-            <h2 className="text-[40px] font-semibold leading-[1.15] text-[#262D30] md:text-[52px]">
-              Start Your Next
-              <br />
-              Journey With Us
-            </h2>
-            <p className="mt-7 max-w-[450px] text-[22px] leading-[1.45] text-[#121820]">
-              Need a quick quote, a free 30-min consultation, or just want to
-              learn more? Drop your details, and we&apos;ll be in touch within
-              24 working hours to set up a call.
-            </p>
-          </div>
-
-          <form className="grid gap-6">
-            <label className="grid gap-2 text-sm text-[#47515A]">
-              What are you interested in?*
-              <select className="h-12 rounded-lg border border-[#C8CDD2] bg-white px-4 text-lg text-[#121820]">
-                <option>Select...</option>
-              </select>
-            </label>
-            <label className="grid gap-2 text-sm text-[#47515A]">
-              What stage are you in your AI journey?*
-              <select className="h-12 rounded-lg border border-[#C8CDD2] bg-white px-4 text-lg text-[#121820]">
-                <option>Select...</option>
-              </select>
-            </label>
-            <div className="grid gap-5 md:grid-cols-2">
-              <label className="grid gap-2 text-sm text-[#47515A]">
-                Name*
-                <input className="h-12 rounded-lg border border-[#C8CDD2] bg-white px-4 text-lg" />
-              </label>
-              <label className="grid gap-2 text-sm text-[#47515A]">
-                Email*
-                <input
-                  type="email"
-                  className="h-12 rounded-lg border border-[#C8CDD2] bg-white px-4 text-lg"
-                />
-              </label>
-            </div>
-            <label className="grid gap-2 text-sm text-[#47515A]">
-              Briefly describe your project-goals, challenges, and requirements,
-              to help us assist you more effectively during our initial call.*
-              <textarea className="min-h-[110px] rounded-lg border border-[#C8CDD2] bg-white px-4 py-3 text-lg" />
-            </label>
-            <button
-              type="submit"
-              className="h-12 rounded-lg bg-[#333333] text-base font-semibold text-white"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-export function ContactPageSection() {
-  return (
-    <section className="bg-white pt-[162px] pb-[100px]">
-      <Container>
-        <div className="relative flex h-[610.422px] items-start justify-start gap-8 rounded-[24px] bg-[#F2F4F7] p-[72px]">
-          <div className="flex w-[425px] flex-none flex-col items-start gap-4">
-            <h2 className="m-0 w-[425px] text-[48px] font-semibold leading-[57.6px] text-[#262D30]">
-              Start Your Next
-              <br />
-              Journey With Us
-            </h2>
-            <p className="m-0 w-[425px] text-[20px] font-normal leading-[32px] text-[#262D30]">
-              Need a quick quote, a free 30-min consultation, or just want to
-              learn more? Drop your details, and we&apos;ll be in touch within
-              24 working hours to set up a call.
-            </p>
-          </div>
-
-          <form className="relative flex w-[599px] flex-none flex-col items-start gap-5 [font-family:Inter]">
-            <label className="relative flex w-[599px] flex-col gap-[10px] text-[12px] font-medium leading-[14.4px] text-[#242424b3] [font-family:Inter]">
-              What are you interested in?*
-              <select
-                defaultValue=""
-                className="h-[43.203px] w-[599px] rounded-[10px] border border-[#b8bcc2] bg-white px-3 text-[16px] font-normal leading-[19.2px] text-[#262D30] [font-family:Inter]"
-              >
-                <option value="" disabled>
-                  Select...
-                </option>
-                <option>I want a free 30-minute consultation</option>
-                <option>I&apos;m looking for a project quote</option>
-                <option>I&apos;m exploring long-term partnership opportunities</option>
-                <option>I&apos;m just curious to learn more about your work &amp; services</option>
-              </select>
-            </label>
-
-            <label className="relative flex w-[599px] flex-col gap-[10px] text-[12px] font-medium leading-[14.4px] text-[#242424b3] [font-family:Inter]">
-              What stage are you in your AI journey?*
-              <select
-                defaultValue=""
-                className="h-[43.203px] w-[599px] rounded-[10px] border border-[#b8bcc2] bg-white px-3 text-[16px] font-normal leading-[19.2px] text-[#262D30] [font-family:Inter]"
-              >
-                <option value="" disabled>
-                  Select...
-                </option>
-                <option>We are in early exploratory phase. Need AI partner to guide us.</option>
-                <option>We have a fair understanding of what we want to accomplish. Need to start with the AI discovery phase.</option>
-                <option>We have the team and budget to build the AI solution. We need a AI development partner to execute the project.</option>
-                <option>We&apos;re not exploring AI developments at the moment.</option>
-              </select>
-            </label>
-
-            <div className="flex w-[599px] gap-5">
-              <label className="flex w-[289.5px] flex-col gap-[10px] text-[12px] font-medium leading-[14.4px] text-[#242424b3] [font-family:Inter]">
-                Name*
-                <input className="h-[43.203px] rounded-[10px] border border-[#b8bcc2] bg-white px-3 text-[16px] font-normal leading-[19.2px] text-[#262D30] [font-family:Inter]" />
-              </label>
-              <label className="flex w-[289.5px] flex-col gap-[10px] text-[12px] font-medium leading-[14.4px] text-[#242424b3] [font-family:Inter]">
-                Email*
-                <input
-                  type="email"
-                  className="h-[43.203px] rounded-[10px] border border-[#b8bcc2] bg-white px-3 text-[16px] font-normal leading-[19.2px] text-[#262D30] [font-family:Inter]"
-                />
-              </label>
-            </div>
-
-            <label className="flex w-[599px] flex-col gap-[10px] text-[12px] font-medium leading-[16.8px] text-[#242424b3] [font-family:Inter]">
-              Briefly describe your project&mdash;goals, challenges, and requirements,
-              to help us assist you more effectively during our initial call.*
-              <textarea className="h-[100px] resize-y rounded-[10px] border border-[#b8bcc2] bg-white px-3 py-3 text-[16px] font-normal leading-[20.8px] text-[#262D30] [font-family:Inter]" />
-            </label>
-
-            <button
-              type="submit"
-              className="relative flex h-10 w-[599px] items-center justify-center rounded-[10px] bg-[#333333] p-0 text-[14px] font-semibold leading-[16.8px] text-white [font-family:Inter]"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
-      </Container>
-    </section>
-  );
-}
