@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
 import Image from "next/image";
+import { ImageBoxSlider } from "@/components/ui/ImageBoxSlider";
 
 const SERVICES = [
   "Project Management",
@@ -35,6 +35,59 @@ const APPROACH_ITEMS = [
     title: "Reliable",
     description: "Built for real-time use in high-pressure environments.",
   },
+];
+
+const DESIGN_DEVELOPMENT_GROUPS = [
+  {
+    title: "MeLiSA App (End-users)",
+    items: [
+      "Quick connection for live audio, video, or chat support",
+      "Scheduling and support history tracking",
+      "Real-time notifications and FAQs",
+    ],
+  },
+  {
+    title: "Echo Company App (Representatives & Admins)",
+    items: [
+      "Quick connection for live audio, video, or chat support",
+      "Scheduling and support history tracking",
+      "Real-time notifications and FAQs",
+    ],
+  },
+];
+
+const ROLE_SLIDERS = [
+  {
+    label: "MeLiSA / End-users",
+    images: [
+      "echohealthcare-melisa-end-users-1.png",
+      "echohealthcare-melisa-end-users-2.png",
+      "echohealthcare-melisa-end-users-3.png",
+      "echohealthcare-melisa-end-users-4.png",
+    ],
+  },
+  {
+    label: "Echo Company / Company Representatives",
+    images: [
+      "echohealthcare-company-reps-1.png",
+      "echohealthcare-company-reps-2.png",
+      "echohealthcare-company-reps-3.png",
+    ],
+  },
+  {
+    label: "Echo Company / Admin",
+    images: [
+      "echohealthcare-admin-1.png",
+      "echohealthcare-admin-2.png",
+      "echohealthcare-admin-3.png",
+    ],
+  },
+];
+
+const OUTCOME_ITEMS = [
+  "Response times dropped from minutes to seconds",
+  "User satisfaction improved across institutions",
+  "Administrative overhead reduced significantly",
 ];
 
 function EchoHealthcareDivider() {
@@ -75,133 +128,6 @@ function EchoHealthcareDiagramMedia() {
             className="block h-auto w-[65.8667vw] max-w-[893px] min-[810px]:w-[69.765625vw]"
           />
         </EchoHealthcareMediaBox>
-      </div>
-    </section>
-  );
-}
-
-function EchoHealthcareSliderArrow({
-  direction,
-  disabled,
-  onClick,
-}: {
-  direction: "Previous" | "Next";
-  disabled: boolean;
-  onClick: () => void;
-}) {
-  const image =
-    direction === "Previous"
-      ? "carousel-arrow-prev.svg"
-      : "carousel-arrow-next.svg";
-
-  return (
-    <button
-      type="button"
-      aria-label={direction}
-      disabled={disabled}
-      onClick={onClick}
-      className={`absolute top-1/2 z-10 h-10 w-10 -translate-y-1/2 overflow-hidden rounded-[40px] border-0 bg-[rgba(0,0,0,0.2)] p-0 transition-opacity ${
-        direction === "Previous" ? "left-5" : "right-5"
-      } ${disabled ? "cursor-default opacity-0" : "cursor-pointer opacity-100"}`}
-    >
-      <Image
-        src={`/buzzinga-assets/images/project-detail/${image}`}
-        alt=""
-        width={40}
-        height={40}
-        unoptimized
-        className="block h-10 w-10"
-      />
-    </button>
-  );
-}
-
-function EchoHealthcareImageSlider() {
-  const sliderRef = useRef<HTMLUListElement>(null);
-  const snapTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const wheelLockRef = useRef(false);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const slideCount = 2;
-
-  const scrollToSlide = (index: number) => {
-    const slider = sliderRef.current;
-    if (!slider) return;
-
-    const nextIndex = Math.max(0, Math.min(slideCount - 1, index));
-    const slideWidth = slider.children[0]?.getBoundingClientRect().width ?? slider.clientWidth;
-    slider.scrollTo({
-      left: nextIndex * (slideWidth + 10),
-      behavior: "smooth",
-    });
-    setActiveIndex(nextIndex);
-  };
-
-  const snapToNearestSlide = (slider: HTMLUListElement) => {
-    if (snapTimeoutRef.current) {
-      clearTimeout(snapTimeoutRef.current);
-    }
-
-    snapTimeoutRef.current = setTimeout(() => {
-      const slideWidth = slider.children[0]?.getBoundingClientRect().width ?? slider.clientWidth;
-      scrollToSlide(Math.round(slider.scrollLeft / (slideWidth + 10)));
-    }, 120);
-  };
-
-  const handleWheel = (event: React.WheelEvent<HTMLUListElement>) => {
-    if (Math.abs(event.deltaX) < 8) return;
-
-    event.preventDefault();
-
-    if (wheelLockRef.current) return;
-    wheelLockRef.current = true;
-    scrollToSlide(activeIndex + (event.deltaX > 0 ? 1 : -1));
-
-    window.setTimeout(() => {
-      wheelLockRef.current = false;
-    }, 520);
-  };
-
-  return (
-    <section className="flex w-full justify-center overflow-hidden px-4 pt-24 min-[810px]:px-8 min-[810px]:pt-16 min-[1200px]:px-16">
-      <div className="relative flex aspect-[1200/700] w-full max-w-[1152px] overflow-hidden rounded-[32px]">
-        <ul
-          ref={sliderRef}
-          className="project-scrollbar m-0 flex h-full w-full snap-x snap-mandatory list-none gap-[10px] overflow-x-auto overflow-y-hidden scroll-smooth p-0"
-          onScroll={(event) => {
-            const slideWidth =
-              event.currentTarget.children[0]?.getBoundingClientRect().width ??
-              event.currentTarget.clientWidth;
-            setActiveIndex(Math.round(event.currentTarget.scrollLeft / (slideWidth + 10)));
-            snapToNearestSlide(event.currentTarget);
-          }}
-          onWheel={handleWheel}
-        >
-          {[
-            "echohealthcare-approach-carousel-1.png",
-            "echohealthcare-approach-carousel-2.png",
-          ].map((image) => (
-            <li key={image} className="h-full w-full shrink-0 snap-start">
-              <Image
-                src={`/buzzinga-assets/images/project-detail/${image}`}
-                alt=""
-                width={1200}
-                height={700}
-                unoptimized
-                className="block h-full w-full object-cover"
-              />
-            </li>
-          ))}
-        </ul>
-        <EchoHealthcareSliderArrow
-          direction="Previous"
-          disabled={activeIndex === 0}
-          onClick={() => scrollToSlide(activeIndex - 1)}
-        />
-        <EchoHealthcareSliderArrow
-          direction="Next"
-          disabled={activeIndex === slideCount - 1}
-          onClick={() => scrollToSlide(activeIndex + 1)}
-        />
       </div>
     </section>
   );
@@ -272,6 +198,46 @@ function ApproachFeatureCard({
         {description}
       </p>
     </div>
+  );
+}
+
+function EchoHealthcareTwoColumnTextSection({
+  title,
+  children,
+  className = "pt-16",
+}: {
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <section className={`flex w-full justify-center px-4 pb-0 min-[810px]:px-16 ${className}`}>
+      <div className="flex w-full max-w-[700px] flex-col items-start gap-4 min-[810px]:flex-row min-[810px]:gap-6">
+        <div className="flex w-auto flex-col justify-center min-[810px]:w-[210px]">
+          <p className="m-0 text-[18px] font-semibold leading-[25.2px] text-[#262D30] min-[810px]:text-[24px] min-[810px]:leading-[33.6px]">
+            {title}
+          </p>
+        </div>
+
+        <div className="flex w-full flex-col items-center justify-center gap-6 pt-0.5 min-[810px]:w-[466px]">
+          {children}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function EchoHealthcareBulletList({ items }: { items: string[] }) {
+  return (
+    <ul className="m-0 flex w-full list-disc flex-col gap-0 pl-[24.5px] text-[16px] font-normal leading-6 text-[#262D30] min-[810px]:text-[20px] min-[810px]:leading-8">
+      {items.map((item) => (
+        <li key={item} className="pl-0">
+          <p className="m-0 text-[16px] font-normal leading-6 text-[#262D30] min-[810px]:text-[20px] min-[810px]:leading-8">
+            {item}
+          </p>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -452,5 +418,57 @@ export function EchoHealthcareApproachSection() {
 }
 
 export function EchoHealthcareApproachMediaSection() {
-  return <EchoHealthcareImageSlider />;
+  return (
+    <ImageBoxSlider
+      images={[
+        "echohealthcare-approach-carousel-1.png",
+        "echohealthcare-approach-carousel-2.png",
+      ]}
+    />
+  );
+}
+
+export function EchoHealthcareDesignDevelopmentSection() {
+  return (
+    <EchoHealthcareTwoColumnTextSection title="Design and Development" className="pt-16">
+      <p className="m-0 w-full text-[16px] font-normal leading-6 text-[#262D30] min-[810px]:text-[20px] min-[810px]:leading-8">
+        We delivered two synchronized mobile apps with clear role-based functionality.
+      </p>
+
+      {DESIGN_DEVELOPMENT_GROUPS.map((group) => (
+        <div key={group.title} className="flex w-full flex-col items-start gap-4 rounded-2xl bg-[#F2F4F7] p-5 min-[810px]:p-6">
+          <p className="m-0 w-full text-[16px] font-semibold leading-6 text-[#262D30] min-[810px]:text-[20px] min-[810px]:leading-[30px]">
+            {group.title}
+          </p>
+          <EchoHealthcareBulletList items={group.items} />
+        </div>
+      ))}
+    </EchoHealthcareTwoColumnTextSection>
+  );
+}
+
+export function EchoHealthcareRoleSlidersSection() {
+  return (
+    <>
+      {ROLE_SLIDERS.map((slider, index) => (
+        <ImageBoxSlider
+          key={slider.label}
+          images={slider.images}
+          label={slider.label}
+          className={index === 0 ? "pt-16" : "pt-16"}
+        />
+      ))}
+    </>
+  );
+}
+
+export function EchoHealthcareOutcomeSection() {
+  return (
+    <EchoHealthcareTwoColumnTextSection title="Outcome" className="pt-16">
+      <p className="m-0 w-full text-[16px] font-normal leading-6 text-[#262D30] min-[810px]:text-[20px] min-[810px]:leading-8">
+        The new mobile ecosystem transformed how Echo Healthcare&rsquo;s support team operated.
+      </p>
+      <EchoHealthcareBulletList items={OUTCOME_ITEMS} />
+    </EchoHealthcareTwoColumnTextSection>
+  );
 }

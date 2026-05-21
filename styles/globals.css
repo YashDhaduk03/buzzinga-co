@@ -144,7 +144,7 @@
   font-weight: 900;
 }
 
-@theme {
+:root {
   --font-display: "Inter Display", "Inter", sans-serif;
 
   --color-brand-dark: #262D30;
