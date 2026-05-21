@@ -189,6 +189,33 @@ a {
   animation-play-state: paused;
 }
 
+.hero-motion-slider {
+  height: clamp(500px, 42vw, 480px);
+}
+
+.hero-motion-stage {
+  position: relative;
+  height: 100%;
+  min-width: 100%;
+}
+
+.hero-motion-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(292px, 33.333vw, 480px);
+  aspect-ratio: 480 / 366;
+  border-radius: 24px;
+  will-change: transform, opacity;
+}
+
+.hero-motion-card img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .logo-slider-track {
   animation: marquee 34s linear infinite;
   will-change: transform;
