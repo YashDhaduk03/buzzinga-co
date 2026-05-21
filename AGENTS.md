@@ -57,6 +57,7 @@ For every UI task:
 - If something is unknown, inspect it instead of guessing.
 - Make small CSS changes.
 - Keep original React structure unless structure is the reason for mismatch.
+- Always make new or adjusted UI look like the live site and follow this site's established theme.
 
 ## Output required after every task
 
