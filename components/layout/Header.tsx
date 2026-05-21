@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <header
-      className={`site-header fixed left-0 right-0 top-0 z-50 backdrop-blur-[10px] transition-[height] duration-300 ${
+      className={`site-header fixed left-0 right-0 top-0 z-50 backdrop-blur-[10px] transition-[height] duration-300 z-[10000] ${
         isScrolled ? "h-[58px] bg-white/70 border-b border-[#242424]/10" : "h-[64px] md:h-[78px]"
       }`}
     >
