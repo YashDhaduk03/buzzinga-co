@@ -73,7 +73,7 @@ export function IntroSection() {
     <section className="intro-section bg-white py-24 md:py-32">
       <Container>
         <div className="max-w-[720px]">
-          <h2 className="intro-heading will-animate text-[40px] font-semibold leading-[1.15] text-[#262D30] md:text-[52px]">
+          <h2 className="intro-heading will-animate text-[24px] font-semibold leading-[1.2] text-[#262D30] min-[810px]:text-[40px] min-[810px]:leading-[1.15] xl:text-[52px]">
             We Build Intelligent Products That Transform Businesses
           </h2>
           <p className="intro-body will-animate mt-6 text-[20px] leading-[1.55] text-[#262D30]">
@@ -156,7 +156,7 @@ export function CapabilitiesSection() {
       <Container>
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="capabilities-heading will-animate section-heading text-[40px] font-semibold leading-[1.08] text-[#262D30]">
+            <h2 className="capabilities-heading will-animate section-heading text-[24px] font-semibold leading-[1.2] text-[#262D30] min-[810px]:text-[40px] min-[810px]:leading-[1.08]">
               From Idea to Intelligence,
               <br />
               Our Capabilities
@@ -183,7 +183,7 @@ export function WhyClientsStaySection() {
       <Container>
         <div className="grid gap-14 md:grid-cols-[0.8fr_1.2fr]">
           <div className="values-left will-animate -translate-x-10">
-            <h2 className="text-[40px] font-semibold leading-[1.15] text-[#262D30] md:text-[52px]">
+            <h2 className="text-[24px] font-semibold leading-[1.2] text-[#262D30] min-[810px]:text-[40px] min-[810px]:leading-[1.15] xl:text-[52px]">
               Why Clients Stay
               <br />
               With Us

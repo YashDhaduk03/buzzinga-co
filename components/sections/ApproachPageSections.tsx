@@ -47,24 +47,24 @@ const CONNECTIONS = [
     label: "Logic & Pattern",
     text: "Surfaces insights and accelerates creation.",
     className: "bg-[#E7ECF1] text-[#121820]",
-    widthClass: "md:w-[430px]",
-    lineClass: "md:w-[153px]",
+    widthClass: "xl:w-[430px]",
+    lineClass: "xl:w-[153px]",
   },
   {
     lead: "Human",
     label: "Strategy & Creativity",
     text: "Guides context, empathy, and direction.",
     className: "bg-[#B8BEC7] text-[#121820]",
-    widthClass: "md:w-[434px]",
-    lineClass: "md:w-[78px]",
+    widthClass: "xl:w-[434px]",
+    lineClass: "xl:w-[78px]",
   },
   {
     lead: "Outcomes",
     label: "Compounded Value",
     text: "Deliver systems that improve on their own",
     className: "bg-[#292D30] text-white",
-    widthClass: "md:w-[403px]",
-    lineClass: "md:w-10",
+    widthClass: "xl:w-[403px]",
+    lineClass: "xl:w-10",
   },
 ] as const;
 
@@ -92,7 +92,7 @@ export default function ApproachPageSections() {
       <section className="overflow-hidden bg-white pt-[150px] md:pt-[166px]">
         <Container className="max-w-[1200px]">
           <div className="max-w-[900px]">
-            <h1 className="text-[44px] font-semibold leading-[1.12] text-[#262D30] md:text-[54px]">
+            <h1 className="text-[28px] font-semibold leading-[33.6px] text-[#262D30] min-[810px]:text-[44px] min-[810px]:leading-[1.12] xl:text-[54px]">
               We Don&apos;t Add AI
               <br />
               We Build with It from Day One
@@ -148,7 +148,7 @@ export default function ApproachPageSections() {
       <section className="bg-[#F2F4F7] py-16 md:py-12">
         <Container className="max-w-[1200px]">
           <div className="max-w-[520px]">
-            <h2 className="text-[44px] font-semibold leading-[1.12] text-[#262D30] md:text-[52px]">
+            <h2 className="text-[24px] font-semibold leading-[28.8px] text-[#262D30] min-[810px]:text-[44px] min-[810px]:leading-[1.12] xl:text-[52px]">
               How It All Connects
             </h2>
             <p className="mt-2 text-[20px] leading-[1.5] text-[#0E171D] md:text-[21px]">
@@ -156,24 +156,24 @@ export default function ApproachPageSections() {
             </p>
           </div>
 
-          <div className="mt-14 grid overflow-hidden rounded-[14px] md:flex md:overflow-visible md:rounded-none">
+          <div className="mt-14 grid overflow-hidden rounded-[14px] xl:flex xl:overflow-visible xl:rounded-none">
             {CONNECTIONS.map((item, index) => (
               <article
                 key={item.lead}
                 className={`flex min-h-[216px] flex-col justify-between p-6 ${item.className} ${item.widthClass} ${
-                  index > 0 ? "md:-ml-[33px]" : ""
-                } md:rounded-[14px]`}
+                  index > 0 ? "xl:-ml-[33px]" : ""
+                } xl:rounded-[14px]`}
               >
-                <div className="flex items-center gap-5">
-                  <p className="shrink-0 text-[20px] font-semibold leading-[1.3]">
+                <div className="flex flex-wrap items-center gap-3 xl:flex-nowrap xl:gap-5">
+                  <p className="text-[14px] font-semibold leading-[1.3] xl:shrink-0 xl:text-[20px]">
                     {item.lead}
                   </p>
                   <span className={`h-px w-20 bg-current opacity-80 ${item.lineClass}`} />
-                  <p className="shrink-0 text-[20px] font-semibold leading-[1.3]">
+                  <p className="text-[14px] font-semibold leading-[1.3] xl:shrink-0 xl:text-[20px]">
                     {item.label}
                   </p>
                 </div>
-                <p className="mt-12 text-[18px] leading-[1.45]">{item.text}</p>
+                <p className="mt-10 text-[15px] leading-[1.45] xl:mt-12 xl:text-[18px]">{item.text}</p>
               </article>
             ))}
           </div>
@@ -182,36 +182,36 @@ export default function ApproachPageSections() {
 
       <section className="bg-white py-24 md:py-[100px]">
         <Container className="max-w-[1200px]">
-          <div className="grid gap-14 md:flex md:items-start md:gap-4">
-            <div className="md:flex md:w-[389.328px] md:flex-col md:justify-center">
-              <h2 className="text-[44px] font-semibold leading-[1.18] text-[#262D30] md:text-[48px] md:leading-[57.6px]">
+          <div className="grid gap-14 xl:flex xl:items-start xl:gap-4">
+            <div className="xl:flex xl:w-[389.328px] xl:flex-col xl:justify-center">
+              <h2 className="text-[24px] font-semibold leading-[28.8px] text-[#262D30] min-[810px]:text-[44px] min-[810px]:leading-[1.18] xl:text-[48px] xl:leading-[57.6px]">
                 The Buzzinga Advantage
               </h2>
             </div>
-            <div className="space-y-10 md:flex md:h-[462.781px] md:w-[389.344px] md:flex-col md:items-start md:justify-start md:gap-8 md:space-y-0 md:pt-2.5">
+            <div className="space-y-10 xl:flex xl:h-[462.781px] xl:w-[389.344px] xl:flex-col xl:items-start xl:justify-start xl:gap-8 xl:space-y-0 xl:pt-2.5">
               {ADVANTAGES.map((advantage) => (
                 <article
                   key={advantage.value}
-                  className="md:flex md:h-[129.594px] md:w-full md:flex-col md:items-start md:justify-start md:gap-2.5"
+                  className="xl:flex xl:h-[129.594px] xl:w-full xl:flex-col xl:items-start xl:justify-start xl:gap-2.5"
                 >
-                  <h3 className="text-[50px] font-normal leading-[1] text-[#0E171D] md:w-full md:text-[48px] md:font-light md:leading-[57.6px] md:text-[#262D30]">
+                  <h3 className="text-[50px] font-normal leading-[1] text-[#0E171D] xl:w-full xl:text-[48px] xl:font-light xl:leading-[57.6px] xl:text-[#262D30]">
                     {advantage.value}
                   </h3>
-                  <p className="mt-4 text-[20px] font-semibold leading-[1.35] text-[#0E171D] md:mt-0 md:w-full md:leading-[30px] md:text-[#262D30]">
+                  <p className="mt-4 text-[20px] font-semibold leading-[1.35] text-[#0E171D] xl:mt-0 xl:w-full xl:leading-[30px] xl:text-[#262D30]">
                     {advantage.title}
                   </p>
-                  <p className="mt-1 text-[20px] leading-[1.35] text-[#0E171D] md:mt-0 md:w-full md:leading-[32px] md:text-[#262D30]">
+                  <p className="mt-1 text-[20px] leading-[1.35] text-[#0E171D] xl:mt-0 xl:w-full xl:leading-[32px] xl:text-[#262D30]">
                     {advantage.text}
                   </p>
                 </article>
               ))}
             </div>
-            <article className="border-t border-[#0E171D] pt-8 md:flex md:h-[474.594px] md:w-[389.328px] md:flex-col md:items-center md:justify-start md:gap-6 md:border-t-0 md:pt-4">
-              <div className="hidden h-px w-full bg-[#262D30] md:block" />
-              <h3 className="text-[32px] font-semibold leading-[1.25] text-[#0E171D] md:w-full md:leading-[41.6px] md:text-[#262D30]">
+            <article className="border-t border-[#0E171D] pt-8 xl:flex xl:h-[474.594px] xl:w-[389.328px] xl:flex-col xl:items-center xl:justify-start xl:gap-6 xl:border-t-0 xl:pt-4">
+              <div className="hidden h-px w-full bg-[#262D30] xl:block" />
+              <h3 className="text-[32px] font-semibold leading-[1.25] text-[#0E171D] xl:w-full xl:leading-[41.6px] xl:text-[#262D30]">
                 Why It Matters
               </h3>
-              <div className="mt-8 space-y-4 text-[20px] leading-[1.6] text-[#0E171D] md:mt-0 md:w-full md:space-y-2.5 md:leading-[32px] md:text-[#262D30]">
+              <div className="mt-8 space-y-4 text-[20px] leading-[1.6] text-[#0E171D] xl:mt-0 xl:w-full xl:space-y-2.5 xl:leading-[32px] xl:text-[#262D30]">
                 <p>Traditional software delivery treats AI as an add-on.</p>
                 <p>
                   We treat it as a core design principle, embedded into how

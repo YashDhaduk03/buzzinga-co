@@ -48,7 +48,7 @@ export default function Testimonials({
             />
           </button>
 
-          <div className="mx-auto max-w-[1040px] overflow-hidden">
+          <div className="mx-auto max-w-[1072px] overflow-hidden">
             <ul
               className="m-0 flex list-none p-0 transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -58,7 +58,7 @@ export default function Testimonials({
                   key={`${testimonial.name}-${testimonial.company}`}
                   className="w-full flex-none"
                 >
-                  <blockquote className="m-0 text-[28px] italic leading-[1.55] text-[#121820] md:text-[40px]">
+                  <blockquote className="testimonial-quote m-0 mx-auto text-[20px] font-light leading-[26px] text-[#262D30] lg:text-[28px] lg:leading-[36.4px] xl:text-[36px] xl:leading-[54px]">
                     &quot;{testimonial.quote}&quot;
                   </blockquote>
                   <p className="mt-10 mb-0 text-2xl font-semibold leading-8 text-[#121820]">

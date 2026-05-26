@@ -42,8 +42,8 @@ export default function ProjectsSection({
           className={cn(
             "portfolio-heading will-animate m-0 font-semibold text-[#262D30]",
             pageHeading
-              ? "text-[40px] leading-[1.1] md:text-[56px] md:leading-[61.6px]"
-              : "text-[40px] leading-[1.1] md:text-[52px]"
+              ? "text-[28px] leading-[33.6px] min-[810px]:text-[44px] min-[810px]:leading-[52.8px] xl:text-[56px] xl:leading-[61.6px]"
+              : "text-[24px] leading-[28.8px] min-[810px]:text-[40px] min-[810px]:leading-[1.1] xl:text-[52px]"
           )}
         >
           {title}

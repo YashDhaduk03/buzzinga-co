@@ -17,6 +17,21 @@
 
 # generated/reference screenshots
 /screenshots/**/*.png
+/screenshots/*.png
+/screenshots/**/*.jpg
+/screenshots/*.jpg
+/screenshots/**/*.jpeg
+/screenshots/*.jpeg
+/screenshots/**/*.webp
+/screenshots/*.webp
+/docs/screenshots/**/*.png
+/docs/screenshots/*.png
+/docs/screenshots/**/*.jpg
+/docs/screenshots/*.jpg
+/docs/screenshots/**/*.jpeg
+/docs/screenshots/*.jpeg
+/docs/screenshots/**/*.webp
+/docs/screenshots/*.webp
 !/screenshots/README.md
 /output/playwright
 

@@ -21,7 +21,7 @@ export default function SectionHeading({
         className
       )}
     >
-      <h2 className="section-heading text-4xl font-semibold leading-tight text-[#262D30]">
+      <h2 className="section-heading text-[24px] font-semibold leading-[28.8px] text-[#262D30] min-[810px]:text-[40px] min-[810px]:leading-tight xl:text-[48px]">
         {heading}
       </h2>
       {subheading && (

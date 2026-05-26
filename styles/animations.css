@@ -1,6 +1,6 @@
 .will-animate {
-  opacity: 0;
-  transform: translateY(24px);
+  opacity: 1;
+  transform: none;
 }
 
 .will-animate.is-animated,
@@ -10,23 +10,23 @@
 }
 
 .values-left.will-animate {
-  transform: translateX(-40px);
+  transform: none;
 }
 
 .contact-left.will-animate {
-  transform: translateX(-32px);
+  transform: none;
 }
 
 .contact-form.will-animate {
-  transform: translateX(32px);
+  transform: none;
 }
 
 .portfolio-card.will-animate {
-  transform: scale(0.94);
+  transform: none;
 }
 
 .site-header {
-  transform: translateY(-100%);
+  transform: none;
 }
 
 .site-header.scrolled {
@@ -47,8 +47,8 @@
 
 .hero-line,
 .hero-subtext {
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: none;
 }
 
 .marquee-track {
@@ -64,7 +64,7 @@
 }
 
 .logo-reveal-item {
-  opacity: 0;
+  opacity: 1;
 }
 
 .capabilities-link .capabilities-arrow {
@@ -130,6 +130,10 @@
   transition: opacity 0.6s ease;
 }
 
+.testimonial-quote {
+  max-width: calc(100vw - 160px);
+}
+
 .testimonial-dot {
   transition: width 0.3s ease, background-color 0.3s ease;
 }
@@ -144,6 +148,24 @@
 
 .testimonial-arrow-next:hover {
   transform: translateY(-50%) translateX(2px) scale(1.1);
+}
+
+@media (min-width: 1024px) {
+  .testimonial-quote {
+    max-width: 832px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .testimonial-quote {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .testimonial-quote {
+    max-width: 1072px;
+  }
 }
 
 .value-icon path,

@@ -7,7 +7,7 @@ export function ContactSection() {
       <Container>
         <div className="grid gap-12 rounded-3xl bg-[#F2F4F7] p-8 md:grid-cols-[0.6fr_0.6fr] md:p-[72px]">
           <div className="contact-left will-animate -translate-x-8">
-            <h2 className="text-[40px] font-semibold leading-[1.15] text-[#262D30] md:text-[48px]">
+            <h2 className="text-[24px] font-semibold leading-[1.2] text-[#262D30] min-[810px]:text-[40px] min-[810px]:leading-[1.15] xl:text-[48px]">
               Start Your Next
               <br />
               Journey With Us
@@ -74,7 +74,7 @@ export function ContactPageSection({ className }: ContactPageSectionProps) {
       <Container>
         <div className="relative flex h-auto flex-col items-start justify-start gap-10 rounded-[24px] bg-[#F2F4F7] p-8 xl:flex-row xl:gap-8 xl:p-[64px]">
           <div className="contact-left will-animate -translate-x-8 flex w-full flex-none flex-col items-start gap-4 xl:w-[calc((100%-32px)/2)]">
-            <h2 className="m-0 w-full text-[40px] font-semibold leading-[46px] text-[#262D30] xl:max-w-[425px] xl:text-[48px] xl:leading-[57.6px]">
+            <h2 className="m-0 w-full text-[24px] font-semibold leading-[28.8px] text-[#262D30] min-[810px]:text-[40px] min-[810px]:leading-[46px] xl:max-w-[425px] xl:text-[48px] xl:leading-[57.6px]">
               Start Your Next
               <br />
               Journey With Us

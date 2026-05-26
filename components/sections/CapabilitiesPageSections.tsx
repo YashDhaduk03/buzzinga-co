@@ -568,18 +568,28 @@ export default function CapabilitiesPageSections() {
             gap: 16px;
           }
         }
+
+        .expertise-grid {
+          grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 1280px) {
+          .expertise-grid {
+            grid-template-columns: var(--expertise-grid-columns);
+          }
+        }
       `}</style>
 
-      <section className="bg-[url('/buzzinga-assets/images/backgrounds/capabilities-hero-bg.webp')] bg-cover bg-center bg-no-repeat pt-[164px] pb-20 [font-family:'Inter_Display','Inter',sans-serif]">
+      <section className="bg-[url('/buzzinga-assets/images/backgrounds/capabilities-hero-bg.webp')] bg-cover bg-center bg-no-repeat pt-[120px] pb-12 [font-family:'Inter_Display','Inter',sans-serif] min-[810px]:pt-[164px] min-[810px]:pb-20">
         <Container className="max-w-[1200px]">
           <div className="flex flex-col items-start gap-4">
-            <h1 className="m-0 w-full text-[56px] font-semibold leading-[61.6px] text-[#262D30]">
+            <h1 className="m-0 w-full text-[28px] font-semibold leading-[33.6px] text-[#262D30] min-[810px]:text-[44px] min-[810px]:leading-[52.8px] xl:text-[56px] xl:leading-[61.6px]">
               Our Capabilities
             </h1>
-            <p className="m-0 w-[600px] text-[20px] font-normal leading-[32px] text-[#262D30]">
+            <p className="m-0 w-full text-[16px] font-normal leading-6 text-[#262D30] min-[810px]:w-[600px] min-[810px]:text-[20px] min-[810px]:leading-[32px]">
               Powered by AI-Driven Efficiency
             </p>
-            <p className="m-0 w-[600px] text-[20px] font-normal leading-[32px] text-[#262D30]">
+            <p className="m-0 w-full text-[16px] font-normal leading-6 text-[#262D30] min-[810px]:w-[600px] min-[810px]:text-[20px] min-[810px]:leading-[32px]">
               We design and build digital products with precision, creativity, and
               speed; using AI to enhance every stage of strategy, design, and
               development.
@@ -588,26 +598,26 @@ export default function CapabilitiesPageSections() {
         </Container>
       </section>
 
-      <section className="bg-white py-[100px] [font-family:'Inter_Display','Inter',sans-serif]">
-        <Container className="flex max-w-[1200px] flex-col items-center gap-20">
+      <section className="bg-white py-12 [font-family:'Inter_Display','Inter',sans-serif] min-[810px]:py-[100px]">
+        <Container className="flex max-w-[1200px] flex-col items-center gap-12 min-[810px]:gap-20">
           {CAPABILITY_DETAILS.map((capability) => (
             <article
               key={capability.title}
-              className="flex w-full items-start justify-center gap-16 rounded-2xl"
+              className="flex w-full flex-col items-start justify-center gap-8 rounded-2xl xl:flex-row xl:gap-16"
             >
-              <div className="flex w-[568px] flex-col items-center justify-center gap-0">
-                <h3 className="m-0 w-full text-[40px] font-semibold leading-[48px] text-[#262D30]">
+              <div className="flex w-full flex-col items-center justify-center gap-0 xl:w-[568px]">
+                <h3 className="m-0 w-full text-[24px] font-semibold leading-[28.8px] text-[#262D30] min-[810px]:text-[40px] min-[810px]:leading-[48px]">
                   {capability.title}
                 </h3>
                 <h3
-                  className="m-0 w-full text-[40px] font-semibold leading-[48px]"
+                  className="m-0 w-full text-[24px] font-semibold leading-[28.8px] min-[810px]:text-[40px] min-[810px]:leading-[48px]"
                   style={{ color: capability.serviceColor }}
                 >
                   {capability.service}
                 </h3>
               </div>
 
-              <div className="flex w-[568px] flex-col items-center justify-center gap-0">
+              <div className="flex w-full flex-col items-center justify-center gap-0 xl:w-[568px]">
                 <div className="flex h-[22px] w-full items-center justify-center gap-2.5 py-2.5">
                   <div className="h-0.5 w-full bg-[#262D30]" />
                 </div>
@@ -617,12 +627,12 @@ export default function CapabilitiesPageSections() {
                     key={detail.label}
                     className="flex w-full items-start justify-center gap-2.5 py-2.5"
                   >
-                    <div className="flex w-[186px] flex-col items-center justify-center gap-0">
+                    <div className="flex w-[34%] flex-col items-center justify-center gap-0 xl:w-[186px]">
                       <p className="m-0 w-full text-[16px] font-normal leading-[25.6px] text-[#262D30]">
                         {detail.label}
                       </p>
                     </div>
-                    <div className="flex w-[372px] items-end justify-center gap-2.5">
+                    <div className="flex w-[66%] items-end justify-center gap-2.5 xl:w-[372px]">
                       <p
                         className="m-0 w-full text-[16px] font-normal leading-[25.6px] text-[#262D30]"
                         dangerouslySetInnerHTML={{ __html: detail.text }}
@@ -636,20 +646,20 @@ export default function CapabilitiesPageSections() {
         </Container>
       </section>
 
-      <section className="bg-[#F2F4F7] py-[100px] [font-family:'Inter_Display','Inter',sans-serif]">
-        <Container className="flex max-w-[1200px] flex-col items-start gap-12">
-          <div className="flex h-[121.594px] w-full flex-col items-start justify-between">
-            <h2 className="m-0 w-[768px] text-[48px] font-semibold leading-[57.6px] text-[#262D30]">
+      <section className="bg-[#F2F4F7] py-12 [font-family:'Inter_Display','Inter',sans-serif] min-[810px]:py-[100px]">
+        <Container className="flex max-w-[1200px] flex-col items-start gap-10 min-[810px]:gap-12">
+          <div className="flex h-auto w-full flex-col items-start justify-between gap-4 xl:h-[121.594px]">
+            <h2 className="m-0 w-full text-[24px] font-semibold leading-[28.8px] text-[#262D30] min-[810px]:w-[768px] min-[810px]:text-[48px] min-[810px]:leading-[57.6px]">
               What Goes Behind It All
             </h2>
-            <p className="m-0 w-[768px] text-[20px] font-normal leading-[32px] text-[#262D30]">
+            <p className="m-0 w-full text-[16px] font-normal leading-6 text-[#262D30] min-[810px]:w-[768px] min-[810px]:text-[20px] min-[810px]:leading-[32px]">
               Every capability we offer is powered by a deep stack of strategy,
               design, and development expertise. Enhanced by AI to move faster
               and smarter.
             </p>
           </div>
 
-          <div className="h-[365px] w-full">
+          <div className="h-auto w-full xl:h-[365px]">
             <div className="flex h-[51px] w-full items-start overflow-hidden rounded-2xl">
               <div className="rounded-2xl bg-[#2424241a]">
                 <div className="relative flex gap-0.5 p-1">
@@ -687,8 +697,8 @@ export default function CapabilitiesPageSections() {
             </div>
 
             <div
-              className="mt-[40px] grid w-full gap-x-8"
-              style={{ gridTemplateColumns: expertiseGridColumns }}
+              className="expertise-grid mt-[40px] grid w-full gap-x-8 gap-y-8"
+              style={{ "--expertise-grid-columns": expertiseGridColumns } as React.CSSProperties}
             >
               {activeExpertise.columns.map((column) => (
                 <div key={column.title} className="w-full">
@@ -712,14 +722,14 @@ export default function CapabilitiesPageSections() {
 
           <div className="h-px w-full bg-[#262D30]" />
 
-          <div className="flex h-[200.406px] w-full items-start justify-start gap-8">
-            <h2 className="m-0 w-[389.328px] flex-none text-[48px] font-semibold leading-[57.6px] text-[#262D30]">
+          <div className="flex h-auto w-full flex-col items-start justify-start gap-8 xl:h-[200.406px] xl:flex-row">
+            <h2 className="m-0 w-full flex-none text-[24px] font-semibold leading-[28.8px] text-[#262D30] min-[810px]:text-[48px] min-[810px]:leading-[57.6px] xl:w-[389.328px]">
               Deliverables
             </h2>
 
-            <div className="grid flex-1 grid-cols-3 gap-x-[10px] gap-y-[40px]">
+            <div className="grid w-full flex-1 grid-cols-2 gap-x-[10px] gap-y-[32px] min-[810px]:grid-cols-3 min-[810px]:gap-y-[40px]">
               {DELIVERABLES.map((deliverable) => (
-                <div key={deliverable.title} className="w-[252.891px]">
+                <div key={deliverable.title} className="w-full xl:w-[252.891px]">
                   <DeliverableIcon name={deliverable.icon} />
                   <p className="mt-[10px] mb-0 text-[18px] font-semibold leading-[25.2px] text-[#262D30]">
                     {deliverable.title}
