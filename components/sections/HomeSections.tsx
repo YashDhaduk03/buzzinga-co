@@ -9,7 +9,7 @@ import {
   WHY_CLIENTS_STAY,
 } from "@/constants/site-content";
 
-export { ContactPageSection, ContactSection } from "./ContactSection";
+export { ContactPageSection } from "./ContactSection";
 export { default as ProjectsSection } from "./ProjectsSection";
 
 function AssetIcon({ src, alt, size = 48 }: { src: string; alt: string; size?: number }) {

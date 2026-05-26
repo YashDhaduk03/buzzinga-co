@@ -1,68 +1,8 @@
 import Container from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
 
-export function ContactSection() {
-  return (
-    <section className="contact-section bg-white py-12 md:py-20">
-      <Container>
-        <div className="grid gap-12 rounded-3xl bg-[#F2F4F7] p-8 md:grid-cols-[0.6fr_0.6fr] md:p-[72px]">
-          <div className="contact-left will-animate -translate-x-8">
-            <h2 className="text-[24px] font-semibold leading-[1.2] text-[#262D30] min-[810px]:text-[40px] min-[810px]:leading-[1.15] xl:text-[48px]">
-              Start Your Next
-              <br />
-              Journey With Us
-            </h2>
-            <p className="mt-7 text-[20px] leading-[1.45] text-[#121820]">
-              Need a quick quote, a free 30-min consultation, or just want to
-              learn more? Drop your details, and we&apos;ll be in touch within
-              24 working hours to set up a call.
-            </p>
-          </div>
-
-          <form className="contact-form will-animate translate-x-8 grid gap-6" data-contact-form>
-            <label className="grid gap-2 text-[12px] text-[#242424b3]">
-              What are you interested in?*
-              <select className="contact-field h-12 rounded-[10px] border border-[#C8CDD2] bg-white text-[16px] text-[#121820]">
-                <option>Select...</option>
-              </select>
-            </label>
-            <label className="grid gap-2 text-[12px] text-[#242424b3]">
-              What stage are you in your AI journey?*
-              <select className="contact-field h-12 rounded-[10px] border border-[#C8CDD2] bg-white text-[16px] text-[#121820]">
-                <option>Select...</option>
-              </select>
-            </label>
-            <div className="grid gap-5 md:grid-cols-2">
-              <label className="grid gap-2 text-[12px] text-[#242424b3]">
-                Name*
-                <input className="contact-field h-12 rounded-[10px] border border-[#C8CDD2] bg-white text-[16px]" />
-              </label>
-              <label className="grid gap-2 text-[12px] text-[#242424b3]">
-                Email*
-                <input
-                  type="email"
-                  className="contact-field h-12 rounded-[10px] border border-[#C8CDD2] bg-white text-[16px]"
-                />
-              </label>
-            </div>
-            <label className="grid gap-2 text-[12px] text-[#242424b3]">
-              Briefly describe your project-goals, challenges, and requirements,
-              to help us assist you more effectively during our initial call.*
-              <textarea className="contact-field min-h-[110px] rounded-[10px] border border-[#C8CDD2] bg-white text-[16px]" />
-            </label>
-            <button
-              type="submit"
-              className="contact-submit h-10 rounded-[10px] bg-[#333333] text-base font-semibold text-white"
-              data-submit-button
-            >
-              Submit
-            </button>
-          </form>
-        </div>
-      </Container>
-    </section>
-  );
-}
+const CONTACT_FORM_EMAIL = "yashbuzzinga03@gmail.com";
+const CONTACT_FORM_ACTION = `https://formsubmit.co/${CONTACT_FORM_EMAIL}`;
 
 interface ContactPageSectionProps {
   className?: string;
@@ -86,10 +26,20 @@ export function ContactPageSection({ className }: ContactPageSectionProps) {
             </p>
           </div>
 
-          <form className="contact-form will-animate translate-x-8 relative flex w-full flex-none flex-col items-start gap-5 [font-family:'Inter_Display','Inter',sans-serif] xl:w-[calc((100%-32px)/2)]" data-contact-form>
+          <form
+            action={CONTACT_FORM_ACTION}
+            method="post"
+            className="contact-form will-animate translate-x-8 relative flex w-full flex-none flex-col items-start gap-5 [font-family:'Inter_Display','Inter',sans-serif] xl:w-[calc((100%-32px)/2)]"
+            data-contact-form
+          >
+            <input type="hidden" name="_subject" value="New Buzzinga contact form response" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
             <label className="relative flex w-full flex-col gap-[10px] text-[12px] font-medium leading-[14.4px] text-[#242424b3] [font-family:'Inter_Display','Inter',sans-serif]">
               What are you interested in?*
               <select
+                name="Interested in"
+                required
                 defaultValue=""
                 className="contact-field h-[43.203px] w-full rounded-[10px] border border-[#b8bcc2] bg-white px-3 text-[16px] font-normal leading-[19.2px] text-[#262D30] [font-family:'Inter_Display','Inter',sans-serif]"
               >
@@ -106,6 +56,8 @@ export function ContactPageSection({ className }: ContactPageSectionProps) {
             <label className="relative flex w-full flex-col gap-[10px] text-[12px] font-medium leading-[14.4px] text-[#242424b3] [font-family:'Inter_Display','Inter',sans-serif]">
               What stage are you in your AI journey?*
               <select
+                name="AI journey stage"
+                required
                 defaultValue=""
                 className="contact-field h-[43.203px] w-full rounded-[10px] border border-[#b8bcc2] bg-white px-3 text-[16px] font-normal leading-[19.2px] text-[#262D30] [font-family:'Inter_Display','Inter',sans-serif]"
               >
@@ -122,12 +74,18 @@ export function ContactPageSection({ className }: ContactPageSectionProps) {
             <div className="flex w-full flex-col gap-5 md:flex-row">
               <label className="flex w-full flex-col gap-[10px] text-[12px] font-medium leading-[14.4px] text-[#242424b3] [font-family:'Inter_Display','Inter',sans-serif]">
                 Name*
-                <input className="contact-field h-[43.203px] rounded-[10px] border border-[#b8bcc2] bg-white px-3 text-[16px] font-normal leading-[19.2px] text-[#262D30] [font-family:'Inter_Display','Inter',sans-serif]" />
+                <input
+                  name="Name"
+                  required
+                  className="contact-field h-[43.203px] rounded-[10px] border border-[#b8bcc2] bg-white px-3 text-[16px] font-normal leading-[19.2px] text-[#262D30] [font-family:'Inter_Display','Inter',sans-serif]"
+                />
               </label>
               <label className="flex w-full flex-col gap-[10px] text-[12px] font-medium leading-[14.4px] text-[#242424b3] [font-family:'Inter_Display','Inter',sans-serif]">
                 Email*
                 <input
                   type="email"
+                  name="Email"
+                  required
                   className="contact-field h-[43.203px] rounded-[10px] border border-[#b8bcc2] bg-white px-3 text-[16px] font-normal leading-[19.2px] text-[#262D30] [font-family:'Inter_Display','Inter',sans-serif]"
                 />
               </label>
@@ -136,7 +94,11 @@ export function ContactPageSection({ className }: ContactPageSectionProps) {
             <label className="flex w-full flex-col gap-[10px] text-[12px] font-medium leading-[16.8px] text-[#242424b3] [font-family:'Inter_Display','Inter',sans-serif]">
               Briefly describe your project&mdash;goals, challenges, and requirements,
               to help us assist you more effectively during our initial call.*
-              <textarea className="contact-field h-[100px] resize-y rounded-[10px] border border-[#b8bcc2] bg-white px-3 py-3 text-[16px] font-normal leading-[20.8px] text-[#262D30] [font-family:'Inter_Display','Inter',sans-serif]" />
+              <textarea
+                name="Project details"
+                required
+                className="contact-field h-[100px] resize-y rounded-[10px] border border-[#b8bcc2] bg-white px-3 py-3 text-[16px] font-normal leading-[20.8px] text-[#262D30] [font-family:'Inter_Display','Inter',sans-serif]"
+              />
             </label>
 
             <button
@@ -146,6 +108,12 @@ export function ContactPageSection({ className }: ContactPageSectionProps) {
             >
               Submit
             </button>
+            <p
+              className="m-0 hidden w-full text-center text-[14px] font-medium leading-[19.6px] [font-family:'Inter_Display','Inter',sans-serif]"
+              data-submit-status
+              role="status"
+              aria-live="polite"
+            />
           </form>
         </div>
       </Container>

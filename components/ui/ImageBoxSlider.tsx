@@ -44,10 +44,12 @@ export function ImageBoxSlider({
   images,
   label,
   className = "pt-24 min-[810px]:pt-16",
+  containerClassName = "max-w-[1152px]",
 }: {
   images: string[];
   label?: string;
   className?: string;
+  containerClassName?: string;
 }) {
   const sliderRef = useRef<HTMLUListElement>(null);
   const snapTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -98,7 +100,7 @@ export function ImageBoxSlider({
     <section
       className={`flex w-full justify-center overflow-hidden px-4 min-[810px]:px-8 min-[1200px]:px-16 ${className}`}
     >
-      <div className="flex w-full max-w-[1152px] flex-col items-center gap-6 min-[810px]:gap-4">
+      <div className={`flex w-full ${containerClassName} flex-col items-center gap-6 min-[810px]:gap-4`}>
         <div className="relative flex w-full overflow-hidden min-[810px]:rounded-[32px]">
           <ul
             ref={sliderRef}

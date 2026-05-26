@@ -45,21 +45,48 @@ function initContactSubmit() {
     if (initializedContactForms.has(form)) return;
 
     const button = form.querySelector<HTMLButtonElement>("[data-submit-button]");
+    const status = form.querySelector<HTMLElement>("[data-submit-status]");
     if (!button) return;
 
     initializedContactForms.add(form);
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
+
+      if (status) {
+        status.classList.add("hidden");
+        status.textContent = "";
+      }
+
       button.disabled = true;
       button.innerHTML = '<svg class="submit-spinner" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="42" stroke-dashoffset="14"/></svg>';
 
-      window.setTimeout(() => {
-        button.innerHTML = '<span class="submit-check" aria-hidden="true">✓</span>';
-        window.setTimeout(() => {
-          button.disabled = false;
-          button.textContent = "Submit";
-        }, 1200);
-      }, 900);
+      try {
+        const response = await fetch(form.action, {
+          method: form.method || "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        if (!response.ok) {
+          throw new Error("Contact form submission failed.");
+        }
+
+        form.reset();
+        if (status) {
+          status.textContent = "Thank you. Your message has been sent.";
+          status.classList.remove("hidden", "text-[#B42318]");
+          status.classList.add("text-[#16703A]");
+        }
+      } catch {
+        if (status) {
+          status.textContent = "Sorry, your message could not be sent. Please try again.";
+          status.classList.remove("hidden", "text-[#16703A]");
+          status.classList.add("text-[#B42318]");
+        }
+      } finally {
+        button.disabled = false;
+        button.textContent = "Submit";
+      }
     });
   });
 }
